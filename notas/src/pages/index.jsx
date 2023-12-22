@@ -7,21 +7,23 @@ export default function Index() {
   const [notas, setNotas] = useState([]);
   const [oldNota, setOldNota] = useState([]);
 
+  const server = process.env.SERVER || "http://localhost:3001/";
+
   const getDatas = async () => {
-    const response = await fetch("http://localhost:3001/api/notas");
+    const response = await fetch(server + "api/notas");
     const result = await response.json();
     setNotas(result);
   };
 
   const deleteNota = async (id) => {
-    await fetch("http://localhost:3001/api/notas/" + id, {
+    await fetch(server + "api/notas/" + id, {
       method: "DELETE",
       mode: "cors",
     });
   };
 
   const getNota = async(id)=>{
-    const nota = await fetch("http://localhost:3001/api/notas/" + id);
+    const nota = await fetch(server + "api/notas/" + id);
     const result = await nota.json();
     setOldNota(result)
   }

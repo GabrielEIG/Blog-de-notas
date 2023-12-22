@@ -5,6 +5,7 @@ export default function Form({ oldNota }) {
     title: "",
     content: "",
   });
+  const server = process.env.SERVER || "http://localhost:3001/";
 
   const handleChange = (e) => {
     let event = e.target;
@@ -20,7 +21,7 @@ export default function Form({ oldNota }) {
     let URL = '';
     let params = {};
     if(nota._id){
-        URL = 'http://localhost:3001/api/notas/' + nota._id
+        URL = server + 'api/notas/' + nota._id
         params = {
             method: "PATCH",
             mode: "cors",
@@ -30,7 +31,7 @@ export default function Form({ oldNota }) {
             }
         }
     }else{
-        URL = 'http://localhost:3001/api/notas'
+        URL = server + 'api/notas'
         params = {
             method: "POST",
             mode: "cors",
