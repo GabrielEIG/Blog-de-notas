@@ -5,7 +5,7 @@ export default function Form({ oldNota }) {
     title: "",
     content: "",
   });
-  const server = process.env.SERVER || "http://localhost:3001/";
+  const server = "https://blog-de-notas.onrender.com/";
 
   const handleChange = (e) => {
     let event = e.target;

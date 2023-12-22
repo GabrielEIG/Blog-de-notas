@@ -7,7 +7,7 @@ export default function Index() {
   const [notas, setNotas] = useState([]);
   const [oldNota, setOldNota] = useState([]);
 
-  const server = process.env.SERVER || "http://localhost:3001/";
+  const server = "https://blog-de-notas.onrender.com/";
 
   const getDatas = async () => {
     const response = await fetch(server + "api/notas");
